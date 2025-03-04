@@ -1,7 +1,7 @@
 import java.awt.*;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class BackgroundManager {
     private Image level1, level2;
@@ -16,10 +16,6 @@ public class BackgroundManager {
     }
 
     public void draw(Graphics g, int level) {
-        if (level == 1) {
-            g.drawImage(level1, 0, 0, 800, 600, null);
-        } else {
-            g.drawImage(level2, 0, 0, 800, 600, null);
-        }
+        g.drawImage(level == 1 ? level1 : level2, 0, 0, 800, 600, null);
     }
 }

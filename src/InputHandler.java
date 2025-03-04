@@ -1,4 +1,5 @@
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class InputHandler extends KeyAdapter {
     private Hero hero;
@@ -9,19 +10,11 @@ public class InputHandler extends KeyAdapter {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_RIGHT -> hero.setAction("Run");
-            case KeyEvent.VK_LEFT -> hero.setAction("Walk");
-            case KeyEvent.VK_SPACE -> hero.setAction("Jump");
-            case KeyEvent.VK_A -> hero.setAction("Attack_1");
-            case KeyEvent.VK_S -> hero.setAction("Attack_2");
-            case KeyEvent.VK_D -> hero.setAction("Attack_3");
-            case KeyEvent.VK_SHIFT -> hero.setAction("Shield");
-        }
+        hero.keyPressed(e);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        hero.setAction("Idle");
+        hero.keyReleased(e);
     }
 }
